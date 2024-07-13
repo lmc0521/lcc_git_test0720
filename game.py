@@ -7,5 +7,6 @@ while 1:
 
     if x == y:
         print("bingo")
+        break
     else:
         print("猜錯了")
