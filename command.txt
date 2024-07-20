@@ -1,0 +1,147 @@
+### 版本號
+- git --version
+
+### 設定全域參數
+- git config --global user.name jerry
+- git config --global user.email jerry@gmail.com
+
+
+### 目前設定值
+- git config --list
+
+
+### 初始倉庫
+- git init (.git)
+- U (Untrack) 未被控管
+
+### 檢視狀態
+- git status
+
+### 加入檔案
+- git add <filename>
+- A (Added)
+- git add . (一次將有變更的檔案確認)
+
+### 查看object內容
+- git cat-file -s sha1
+	- s (size)
+	- p (內容)
+	- t (型態)
+
+### 查看暫存區控管的檔案
+- git ls-files 
+- git ls-files -s 
+	- 查看完整資訊
+
+### 修改後 A==>M (M==>D)
+- git add <filename>
+	- 確定修改(刪除)
+- git restore <filename>
+ 	- 反悔修改
+
+### 儲存至倉庫區
+- git commit -m "第一次提交"
+
+### 提交後產生兩個object
+	- commit(sha-1)
+		- tree(sha-1)
+			- files
+
+### 檢視commit的紀錄
+- git log
+- git log --oneline(一行輸出)
+
+
+### 修改上一次的commit紀錄
+- git commit --amend
+	- 開啟vim (i:insert  esc==> :wq)
+
+
+### 手動刪除(暫存區/倉庫區)
+- git restore <filename> 
+	- 恢復
+- git add <filename>
+	- 確認
+	- git restore --staged <filename>
+		- 恢復到手動刪除狀態
+
+### 倉庫區的刪除
+- 手動同上
+- git rm
+	- git commit 確認刪除
+	- git restore --staged <filename>
+		- 恢復到刪除狀態
+			- git restore <filename> 
+				- 恢復
+			- git add <filename>
+				- 確認
+
+
+### 暫存/倉庫移除到工作區 
+- git rm --cached <filename>
+
+
+### 檢視目前分支
+- git branch
+- 產生新分支
+	- git branch <branch-name> 新增分支
+	- git branch -D <branch-name> 刪除分支
+	- git branch -m <old> <new> 更改分支名稱
+- 切換分支
+	- git checkout <branch-name>
+	- git checkout -b <branch-name> 新增分支同時切換
+
+	- git checkout <commit sha-1> 切換到歷史commit
+	- 回到過去修正
+		- git checkout -b dev3
+		- git add.
+		- git commit 
+
+###合併分支
+- git merge <branch-name>
+- git merge --abort 取消合併
+
+
+###回到過去commit
+	- git reset commit-object
+	- git reset --hard commit-object
+
+
+###顯示所有歷程
+	- git reflog
+
+###修改後恢復
+	- git checkout .
+	- git reset --hard HEAD
+	- git reset --hard commit-object
+
+
+###反悔reset
+	- git reset --hard ORIG_HEAD
+
+
+###檢視雲端的倉庫url
+	- git remote -v
+	- git remote add origin https://github.com/lmc0521/lcc_git_test0720.git
+
+###本地端推送到雲端
+	- git push -u origin master
+	- git push (master=>master)
+
+###刪除雲端分支
+	- git push --delete origin dev7  
+
+###新增README.md跟.gitignore
+	- README.md使用markdown語法
+	-.gitignore
+		- 忽略不被控管的檔案
+			- 1.jpg
+			- *.jpg
+			- res/  (目錄)
+
+###跟雲端相關指令
+	- 複製專案
+		- git clone https://github.com/lmc0521/lcc_git_test0720
+	- 下載方式
+		- 進入網址直接下載(不包含.git)
+	- git pull(從雲端更新到本地端)
