@@ -16,3 +16,4 @@ for i in range(5):
 
 if x != y:
     print(f"答案為{x}")
+print("hello")
