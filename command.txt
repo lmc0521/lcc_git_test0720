@@ -41,6 +41,8 @@
 
 ### 儲存至倉庫區
 - git commit -m "第一次提交"
+- 修改上一次的commit
+	- git commit --amend
 
 ### 提交後產生兩個object
 	- commit(sha-1)
@@ -127,6 +129,7 @@
 ###本地端推送到雲端
 	- git push -u origin master
 	- git push (master=>master)
+	- git push -f (強制更新)
 
 ###刪除雲端分支
 	- git push --delete origin dev7  
